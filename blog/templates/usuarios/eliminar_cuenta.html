@@ -1,0 +1,58 @@
+{% extends 'layouts/general-layout.html' %}
+{% load static %}
+{% block title %}Eliminar Cuenta{% endblock title %}
+
+
+{% block banner %}
+<section class="relative w-full h-[320px] md:h-[420px] lg:h-[500px] overflow-hidden ">
+
+  <!-- Imagen -->
+  <img 
+    src="{% static 'img/banner.png' %}" 
+    alt="Banner principal del sitio"
+    fetchpriority="high"
+    loading="eager"
+    class="w-full h-full object-cover mt-3"
+  >
+
+  <!-- Contenido centrado -->
+  <div class="absolute inset-0 flex items-center justify-center bg-black/40">
+    <h1 class="text-white text-4xl md:text-6xl font-extrabold tracking-wide drop-shadow-xl">
+      Eliminar Cuenta
+    </h1>
+  </div>
+
+</section>
+{% endblock banner %}
+
+{% block content %}
+<div class="max-w-md mx-auto mt-16 p-6 bg-red-50 rounded-3xl shadow-lg">
+
+    <h2 class="text-center text-3xl font-bold text-red-600 mb-6">
+        Eliminar Cuenta
+    </h2>
+
+    <p class="text-center text-gray-700 text-lg mb-6">
+        ¿Estás seguro de que deseas eliminar tu cuenta?
+        <br><strong class="text-red-600">Esta acción es irreversible.</strong>
+    </p>
+
+    <form method="post" class="space-y-4">
+        {% csrf_token %}
+
+        <button type="submit" 
+                class="w-full py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-2xl shadow-md transition">
+            Sí, eliminar mi cuenta
+        </button>
+    </form>
+
+    <div class="text-center mt-4">
+        <a href="{% url 'usuarios:perfil' %}" 
+           class="text-blue-600 hover:underline font-semibold">
+           Cancelar y volver a mi perfil
+        </a>
+    </div>
+
+</div>
+{% endblock content %}
+
