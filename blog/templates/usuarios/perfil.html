@@ -4,18 +4,15 @@
 {% block title %}Mi Perfil – {{ usuario.username }}{% endblock title %}
 
 {% block banner %}
-<!-- Banner sin cambios según tu solicitud -->
 <section class="relative w-full h-[320px] md:h-[420px] lg:h-[500px] overflow-hidden">
-  <img 
-    src="{% static 'img/banner.jpg' %}" 
-    alt="Bienvenido al Portal de las Mascotas"
-    fetchpriority="high"
-    loading="eager"
-    class="w-full h-full object-cover"
-  >
+  <img src="{% static 'img/ParqueNacionalNahuelHuapi.jpg' %}" 
+       alt="Bienvenido al Portal de Viajeros"
+       fetchpriority="high" loading="eager"
+       class="w-full h-full object-cover">
+
   <div class="absolute inset-0 flex items-center justify-center bg-black/40">
     <h1 class="text-white text-4xl md:text-6xl font-extrabold tracking-wide drop-shadow-2xl">
-      Bienvenido al Portal de las Mascotas
+      Bienvenido al punto de encuentro de viajeros
     </h1>
   </div>
 </section>
@@ -27,37 +24,36 @@
   <!-- Tarjeta principal del perfil -->
   <div class="bg-white rounded-3xl shadow-2xl border border-blue-100 overflow-hidden transition-all duration-300 hover:shadow-3xl">
 
-    <!-- Header con gradiente mejorado -->
     <div class="bg-gradient-to-br from-blue-500 via-amber-500 to-blue-600 p-8 text-center relative">
-      <!-- Elemento decorativo -->
       <div class="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -translate-x-16 -translate-y-16"></div>
       <div class="absolute bottom-0 right-0 w-40 h-40 bg-white/5 rounded-full translate-x-20 translate-y-20"></div>
-      
+
       <div class="relative z-10">
-        <!-- Avatar con inicial del usuario (ejemplo para Nicolás Tomadin) -->
+
+        <!-- Avatar -->
         <div class="relative inline-block mb-4">
           <div class="w-32 h-32 rounded-full bg-gradient-to-br from-white/20 via-white/15 to-white/10 border-4 border-white shadow-2xl flex items-center justify-center mx-auto backdrop-blur-sm">
             <span class="text-white text-4xl font-black drop-shadow-lg">
               {% if usuario.first_name %}
-                {{ usuario.first_name|first|upper }}
+              {{ usuario.first_name|first|upper }}
               {% else %}
-                {{ usuario.username|first|upper }}
+              {{ usuario.username|first|upper }}
               {% endif %}
             </span>
           </div>
-          <!-- Indicador de estado -->
           <div class="absolute bottom-3 right-3 w-5 h-5 bg-green-500 rounded-full border-2 border-white"></div>
         </div>
-        
-        <!-- Información del usuario -->
+
+        <!-- Nombre -->
         <div class="space-y-2">
           <h2 class="text-3xl font-black text-white mb-1 tracking-tight">
             {% if usuario.first_name or usuario.last_name %}
-              {{ usuario.first_name }} {{ usuario.last_name }}
+            {{ usuario.first_name }} {{ usuario.last_name }}
             {% else %}
-              {{ usuario.username }}
+            {{ usuario.username }}
             {% endif %}
           </h2>
+
           <div class="flex items-center justify-center gap-2">
             <span class="text-white/90 text-lg">@{{ usuario.username }}</span>
             {% if usuario.is_staff %}
@@ -70,21 +66,25 @@
       </div>
     </div>
 
-    <!-- Resto del código permanece igual... -->
+    <!-- Contenido principal -->
     <div class="p-8">
 
-      <!-- Estadísticas mejoradas -->
+      <!-- Stats -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
         <div class="group text-center p-5 bg-gradient-to-br from-blue-50 to-amber-50 rounded-2xl shadow-md border border-blue-100 hover:border-blue-300 transition-all duration-300 hover:-translate-y-1 cursor-default">
-          <div class="text-3xl font-bold text-blue-600 mb-1 group-hover:scale-110 transition-transform">{{ usuario.articulos.count|default:"0" }}</div>
+          <div class="text-3xl font-bold text-blue-600 mb-1 group-hover:scale-110 transition-transform">
+            {{ usuario.articulos.count|default:"0" }}</div>
           <div class="text-sm uppercase tracking-wider text-gray-700 font-semibold">Artículos</div>
           <div class="text-xs text-gray-500 mt-1">Publicados</div>
         </div>
+
         <div class="group text-center p-5 bg-gradient-to-br from-blue-50 to-amber-50 rounded-2xl shadow-md border border-blue-100 hover:border-blue-300 transition-all duration-300 hover:-translate-y-1 cursor-default">
-          <div class="text-3xl font-bold text-blue-600 mb-1 group-hover:scale-110 transition-transform">{{ usuario.comentario_set.count|default:"0" }}</div>
+          <div class="text-3xl font-bold text-blue-600 mb-1 group-hover:scale-110 transition-transform">
+            {{ usuario.comentario_set.count|default:"0" }}</div>
           <div class="text-sm uppercase tracking-wider text-gray-700 font-semibold">Comentarios</div>
           <div class="text-xs text-gray-500 mt-1">Realizados</div>
         </div>
+
         <div class="group text-center p-5 bg-gradient-to-br from-blue-50 to-amber-50 rounded-2xl shadow-md border border-blue-100 hover:border-blue-300 transition-all duration-300 hover:-translate-y-1 cursor-default">
           <div class="text-3xl font-bold text-blue-600 mb-1">{{ usuario.date_joined|timesince|truncatewords:1 }}</div>
           <div class="text-sm uppercase tracking-wider text-gray-700 font-semibold">Miembro</div>
@@ -92,8 +92,9 @@
         </div>
       </div>
 
-      <!-- Información detallada con mejor diseño -->
+      <!-- Información detallada -->
       <div class="grid md:grid-cols-2 gap-6 mb-10">
+
         <div class="space-y-5">
           <div class="group p-5 bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-sm border border-blue-100 hover:shadow-md transition-all duration-300">
             <div class="flex items-start gap-4">
@@ -106,7 +107,7 @@
               </div>
             </div>
           </div>
-          
+
           {% if usuario.telefono %}
           <div class="group p-5 bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-sm border border-blue-100 hover:shadow-md transition-all duration-300">
             <div class="flex items-start gap-4">
@@ -135,7 +136,7 @@
               </div>
             </div>
           </div>
-          
+
           {% if usuario.last_login %}
           <div class="group p-5 bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-sm border border-blue-100 hover:shadow-md transition-all duration-300">
             <div class="flex items-start gap-4">
@@ -153,7 +154,7 @@
         </div>
       </div>
 
-      <!-- Biografía mejorada -->
+      <!-- Biografía -->
       {% if usuario.biografia %}
       <div class="mb-10 group">
         <div class="p-6 bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-sm border border-blue-100 hover:shadow-md transition-all duration-300">
@@ -163,110 +164,132 @@
             </div>
             <h3 class="text-xl font-bold text-blue-700">Sobre mí</h3>
           </div>
-          <p class="text-gray-700 leading-relaxed text-lg pl-1 border-l-4 border-blue-300 pl-4">{{ usuario.biografia|linebreaks }}</p>
+          <p class="text-gray-700 leading-relaxed text-lg border-l-4 border-blue-300 pl-4">
+            {{ usuario.biografia|linebreaks }}
+          </p>
         </div>
       </div>
       {% endif %}
 
-      <!-- Botones de acción mejorados -->
+      <!-- Botones -->
       <div class="flex flex-wrap justify-center gap-4 mb-2">
-        <a href="{% url 'usuarios:editar_perfil' %}" 
-           class="group px-7 py-3.5 bg-gradient-to-r from-blue-600 to-amber-600 hover:from-blue-700 hover:to-amber-700 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
-          <span class="text-lg">✏️</span>
-          Editar Perfil
+        <a href="{% url 'usuarios:editar_perfil' %}" class="group px-7 py-3.5 bg-gradient-to-r from-blue-600 to-amber-600 hover:from-blue-700 hover:to-amber-700 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
+          ✏️ Editar Perfil
         </a>
-        <a href="{% url 'posts:articulo_crear' %}" 
-           class="group px-7 py-3.5 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
-          <span class="text-lg">✨</span>
-          Crear Post
+
+        <a href="{% url 'posts:articulo_crear' %}" class="group px-7 py-3.5 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
+          ✨ Crear Post
         </a>
-        <a href="{% url 'posts:ListaColaboraciones' %}" 
-           class="group px-7 py-3.5 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
-          <span class="text-lg">📚</span>
-          Ver Posts
+
+        <a href="{% url 'posts:ListaColaboraciones' %}" class="group px-7 py-3.5 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
+          📚 Ver Posts
         </a>
       </div>
-
     </div>
   </div>
 
-  <!-- Sección: Mis últimos artículos mejorada -->
+  <!-- Últimos Artículos -->
   {% if usuario.articulos.all %}
   <div class="mt-12 bg-gradient-to-br from-white to-blue-50 rounded-3xl shadow-xl p-8 border border-blue-100">
+
     <div class="flex items-center justify-between mb-8">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-amber-500 rounded-xl flex items-center justify-center shadow-sm">
-          <span class="text-white text-lg">📝</span>
+          📝
         </div>
-        <h3 class="text-2xl font-bold text-gray-800">Mis últimos artículos</h3>
+        <h3 class="text-2xl font-bold text-gray-800">Mis últimos viajes compartidos</h3>
       </div>
+
       <span class="px-3 py-1 bg-gradient-to-r from-blue-100 to-amber-100 text-blue-700 text-sm font-bold rounded-full">
         {{ usuario.articulos.count }} total
       </span>
     </div>
-    
+
     <div class="grid md:grid-cols-2 gap-6">
       {% for articulo in usuario.articulos.all|slice:":4" %}
-        <a href="{% url 'posts:articulo_detalle' articulo.pk %}" 
-           class="group block p-5 bg-white rounded-2xl border border-blue-100 hover:border-blue-300 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-          <div class="flex items-start justify-between mb-3">
-            <h4 class="text-lg font-bold text-gray-800 group-hover:text-blue-600 transition-colors truncate pr-2">{{ articulo.titulo }}</h4>
-            <span class="flex-shrink-0 text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">{{ articulo.fecha_publicacion|date:"d/m/Y" }}</span>
+      <a href="{% url 'posts:articulo_detalle' articulo.pk %}"
+         class="group block p-5 bg-white rounded-2xl border border-blue-100 hover:border-blue-300 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+
+        <div class="flex items-start justify-between mb-3">
+          <h4 class="text-lg font-bold text-gray-800 group-hover:text-blue-600 transition-colors truncate">
+            {{ articulo.titulo }}
+          </h4>
+          <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+            {{ articulo.fecha_publicacion|date:"d/m/Y" }}
+          </span>
+        </div>
+
+        <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+          {{ articulo.contenido|truncatewords:25|striptags }}
+        </p>
+
+        <div class="flex items-center justify-between text-sm">
+          <div class="flex items-center gap-3">
+            <span class="flex items-center gap-1 text-gray-500">
+              👁️ <span class="font-semibold">{{ articulo.visitas }}</span>
+            </span>
+
+            {% if articulo.comentarios.count %}
+            <span class="flex items-center gap-1 text-gray-500">
+              💬 <span class="font-semibold">{{ articulo.comentarios.count }}</span>
+            </span>
+            {% endif %}
           </div>
-          <p class="text-gray-600 text-sm mb-4 line-clamp-2">{{ articulo.contenido|truncatewords:25|striptags }}</p>
-          <div class="flex items-center justify-between text-sm">
-            <div class="flex items-center gap-3">
-              <span class="flex items-center gap-1 text-gray-500">
-                <span class="text-lg">👁️</span>
-                <span class="font-semibold">{{ articulo.visitas }}</span>
-              </span>
-              {% if articulo.comentarios.count %}
-              <span class="flex items-center gap-1 text-gray-500">
-                <span class="text-lg">💬</span>
-                <span class="font-semibold">{{ articulo.comentarios.count }}</span>
-              </span>
-              {% endif %}
-            </div>
-            <span class="text-blue-600 font-semibold group-hover:translate-x-1 transition-transform">Leer →</span>
-          </div>
-        </a>
+
+          <span class="text-blue-600 font-semibold group-hover:translate-x-1 transition-transform">
+            Leer →
+          </span>
+        </div>
+
+      </a>
       {% endfor %}
     </div>
-    
+
     {% if usuario.articulos.count > 4 %}
     <div class="text-center mt-8 pt-6 border-t border-blue-100">
-      <a href="{% url 'posts:ListaColaboraciones' %}?autor={{ usuario.username }}" 
+      <a href="{% url 'posts:ListaColaboraciones' %}?autor={{ usuario.username }}"
          class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-bold hover:underline transition-colors group">
         Ver todos mis artículos ({{ usuario.articulos.count }})
         <span class="text-xl group-hover:translate-x-1 transition-transform">→</span>
       </a>
     </div>
     {% endif %}
+
   </div>
+
   {% else %}
+  <!-- Sin artículos aún -->
   <div class="mt-12 bg-gradient-to-br from-white to-blue-50 rounded-3xl shadow-xl p-10 text-center border border-blue-100">
+
     <div class="w-20 h-20 bg-gradient-to-br from-blue-100 to-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
-      <span class="text-4xl">📝</span>
+      📝
     </div>
-    <h3 class="text-2xl font-bold text-gray-800 mb-3">¡Comienza tu aventura!</h3>
-    <p class="text-gray-600 mb-8 max-w-md mx-auto">Comparte tus experiencias, consejos y momentos especiales con mascotas. Tu primera publicación inspirará a otros amantes de los animales.</p>
-    <a href="{% url 'posts:articulo_crear' %}" 
+
+    <h3 class="text-2xl font-bold text-gray-800 mb-3">¡Comenzá a compartir tus viajes!</h3>
+
+    <p class="text-gray-600 mb-8 max-w-md mx-auto">
+      Compartí tus experiencias, consejos y momentos especiales de tus viajes por Argentina.
+      Tu primera publicación puede inspirar a otros viajeros a descubrir nuevos destinos.
+    </p>
+
+    <a href="{% url 'posts:articulo_crear' %}"
        class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-amber-600 hover:from-blue-700 hover:to-amber-700 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
-      <span class="text-xl">✨</span>
-      Crear mi primer post
+      ✨ Crear mi primer post
     </a>
+
   </div>
   {% endif %}
 
-  <!-- Cerrar sesión con mejor estilo -->
+  <!-- Cerrar sesión -->
   <div class="mt-10 text-center">
-    <a href="{% url 'usuarios:logout' %}" 
+    <a href="{% url 'usuarios:logout' %}"
        class="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 font-medium transition-all duration-300 group">
-      <span class="text-lg">🚪</span>
-      Cerrar sesión
+      🚪 Cerrar sesión
       <span class="group-hover:translate-x-1 transition-transform">→</span>
     </a>
-    <p class="text-xs text-gray-400 mt-4">Sesión iniciada el {{ user.last_login|date:"d/m/Y H:i"|default:"Hoy" }}</p>
+    <p class="text-xs text-gray-400 mt-4">
+      Sesión iniciada el {{ user.last_login|date:"d/m/Y H:i"|default:"Hoy" }}
+    </p>
   </div>
 
 </div>

@@ -51,8 +51,7 @@
     {{ articulo.visitas }} visitas
   </span>
   <!-- Botones de edición -->
-  {% if usuario_actual.is_authenticated and usuario_actual == articulo.autor or usuario_actual.is_staff or
-  usuario_actual.is_superuser %}
+  {% if usuario_actual.is_authenticated and usuario_actual == articulo.autor or usuario_actual.is_staff or usuario_actual.is_superuser %}
   <div class="flex flex-wrap gap-3 my-5">
     <a href="{% url 'posts:articulo_editar' articulo.pk %}"
       class="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg shadow-md transition">
