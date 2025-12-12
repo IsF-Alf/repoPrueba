@@ -1,13 +1,10 @@
 {% extends 'layouts/general-layout.html' %}
 {% load static %}
-
 {% block title %}Inicio{% endblock title %}
-
 {% block banner %}
 <section class="relative w-full h-[320px] md:h-[420px] lg:h-[500px] overflow-hidden ">
-  <img src="{% static 'img/Ruta40.jpg' %}" alt="Banner principal del sitio" fetchpriority="high"
-    loading="eager" class="w-full h-full object-cover mt-3">
-
+  <img src="{% static 'img/Ruta40.jpg' %}" alt="Banner principal del sitio" fetchpriority="high" loading="eager"
+    class="w-full h-full object-cover mt-3">
   <div class="absolute inset-0 flex items-center justify-center bg-black/40">
     <h1 class="text-white text-4xl md:text-6xl font-extrabold tracking-wide drop-shadow-xl">
       Bienvenidos a Mochileando Argentina
@@ -15,7 +12,6 @@
   </div>
 </section>
 {% endblock banner %}
-
 {% block content %}
 <!-- Encabezado -->
 <div class="text-center my-12 px-4">
@@ -29,14 +25,11 @@
     cada rincón de este país increíble.
   </p>
 </div>
-
 <div class="max-w-7xl mx-auto px-4">
-
   <!-- BLOQUE 1 -->
   <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
     <img src="{% static 'img/CafayateSaltaIndex.jpg' %}" alt="Viajeros recorriendo Argentina"
       class="rounded-2xl shadow-lg w-full object-cover" />
-
     <div>
       <h3 class="text-2xl font-bold text-brand mb-3 text-blue-600">Historias de Viaje</h3>
       <p class="text-gray-600 leading-relaxed">
@@ -46,7 +39,6 @@
       </p>
     </div>
   </div>
-
   <!-- BLOQUE 2 -->
   <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
     <div class="order-2 md:order-1">
@@ -57,16 +49,13 @@
         ahorrar tiempo, evitar complicaciones y aprovechar cada destino al máximo.
       </p>
     </div>
-
     <img src="{% static 'img/PuenteIncaMendozaIndex.jpg' %}" alt="Guías y consejos para viajar"
       class="rounded-2xl shadow-lg w-full object-cover order-1 md:order-2" />
   </div>
-
   <!-- BLOQUE 3 -->
   <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
     <img src="{% static 'img/Ruta7LagosNeuquenIndex.jpg' %}" alt="Comunidad de viajeros"
       class="rounded-2xl shadow-lg w-full object-cover" />
-
     <div>
       <h3 class="text-2xl font-bold text-brand mb-3 text-blue-600">Comunidad Mochilera</h3>
       <p class="text-gray-600 leading-relaxed">
@@ -76,7 +65,6 @@
       </p>
     </div>
   </div>
-
   <!-- BLOQUE 4 -->
   <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
     <div class="order-2 md:order-1">
@@ -87,10 +75,8 @@
         conocidos y todo lo que necesitás saber antes de visitar cada provincia.
       </p>
     </div>
-
     <img src="{% static 'img/SalinasGrandesSaltaIndex.jpg' %}" alt="Destinos de Argentina"
       class="rounded-2xl shadow-lg w-full object-cover order-1 md:order-2" />
   </div>
-
 </div>
 {% endblock content %}
