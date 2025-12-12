@@ -1,11 +1,10 @@
 {% extends 'layouts/general-layout.html' %}
 {% load static %}
 {% block title %}Conócenos Mejor – Mochileando Argentina{% endblock title %}
-
 {% block banner %}
 <section class="relative w-full h-[320px] md:h-[420px] lg:h-[500px] overflow-hidden">
-  <img src="{% static 'img/ImgenNosotros.jpg' %}" alt="Viajeros recorriendo paisajes de Argentina"
-    fetchpriority="high" loading="eager" class="w-full h-full object-cover mt-3">
+  <img src="{% static 'img/ImgenNosotros.jpg' %}" alt="Viajeros recorriendo paisajes de Argentina" fetchpriority="high"
+    loading="eager" class="w-full h-full object-cover mt-3">
   <div class="absolute inset-0 flex items-center justify-center bg-black/40">
     <h1 class="text-white text-4xl md:text-6xl font-extrabold tracking-wide drop-shadow-xl">
       Conocenos Mejor
@@ -13,22 +12,20 @@
   </div>
 </section>
 {% endblock banner %}
-
 {% block content %}
 <div class="max-w-6xl mx-auto px-4 py-12">
-
   <!-- Introducción -->
   <article class="text-center mb-16">
     <h2 class="text-4xl font-bold text-blue-600 mb-4">🌄 Nuestra Historia</h2>
     <p class="text-gray-700 text-lg max-w-3xl mx-auto leading-relaxed">
       Mochileando Argentina nació de un sueño simple pero poderoso: compartir las experiencias que vivimos recorriendo
-      este país increíble. Después de viajes entre montañas, ríos, sierras, rutas interminables y pueblos llenos de vida,
+      este país increíble. Después de viajes entre montañas, ríos, sierras, rutas interminables y pueblos llenos de
+      vida,
       decidimos crear un lugar donde cualquier viajero pueda <strong>contar su historia, inspirar a otros y descubrir
-      nuevos destinos</strong>.
+        nuevos destinos</strong>.
       Hoy, esta comunidad sigue creciendo gracias a cada persona que aporta su mirada, su aventura y su recomendación.
     </p>
   </article>
-
   <!-- Misión y Visión -->
   <section class="grid md:grid-cols-2 gap-8 mb-16">
     <!-- Misión -->
@@ -38,11 +35,11 @@
       <h3 class="text-2xl font-bold text-blue-700 mb-3">Nuestra Misión</h3>
       <p class="text-gray-700 leading-relaxed">
         Crear un espacio donde viajeros de toda Argentina puedan compartir <strong>experiencias reales, datos útiles,
-        rutas, destinos y recomendaciones</strong>, construyendo una red colaborativa que ayuda a planificar viajes más
+          rutas, destinos y recomendaciones</strong>, construyendo una red colaborativa que ayuda a planificar viajes
+        más
         auténticos, accesibles y memorables.
       </p>
     </div>
-
     <!-- Visión -->
     <div
       class="bg-gradient-to-br from-blue-50 to-amber-50 p-8 rounded-3xl shadow-lg border border-blue-200 hover:shadow-xl transition-all duration-300">
@@ -54,11 +51,9 @@
       </p>
     </div>
   </section>
-
   <!-- Valores -->
   <section class="mb-16">
     <h3 class="text-3xl font-bold text-center text-blue-600 mb-10">💎 Nuestros Valores</h3>
-
     <div class="grid md:grid-cols-3 gap-6">
       <!-- Comunidad -->
       <div class="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition">
@@ -69,17 +64,16 @@
           más a descubrir un nuevo destino.
         </p>
       </div>
-
       <!-- Respeto -->
       <div class="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition">
         <div class="text-5xl mb-3" aria-hidden="true">🌱</div>
         <h4 class="text-xl font-semibold text-gray-800 mb-2">Respeto por la Naturaleza</h4>
         <p class="text-gray-600">
-          Queremos que cada viaje sea una forma de valorar y cuidar los entornos naturales, culturales y comunitarios que
+          Queremos que cada viaje sea una forma de valorar y cuidar los entornos naturales, culturales y comunitarios
+          que
           hacen de Argentina un país único.
         </p>
       </div>
-
       <!-- Autenticidad -->
       <div class="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition">
         <div class="text-5xl mb-3" aria-hidden="true">📸</div>
@@ -91,37 +85,31 @@
       </div>
     </div>
   </section>
-
   <!-- Estadísticas -->
   <section class="grid md:grid-cols-4 gap-6 mb-16">
     <div class="text-center p-6 bg-gradient-to-br from-blue-500 to-amber-500 text-white rounded-2xl shadow-lg">
       <div class="text-4xl font-bold mb-2">{{ total_vistas|default:"1.000+" }}</div>
       <div class="text-sm uppercase tracking-wider">Visitas</div>
     </div>
-
     <div class="text-center p-6 bg-gradient-to-br from-blue-500 to-amber-500 text-white rounded-2xl shadow-lg">
       <div class="text-4xl font-bold mb-2">100+</div>
       <div class="text-sm uppercase tracking-wider">Relatos</div>
     </div>
-
     <div class="text-center p-6 bg-gradient-to-br from-blue-500 to-amber-500 text-white rounded-2xl shadow-lg">
       <div class="text-4xl font-bold mb-2">50+</div>
       <div class="text-sm uppercase tracking-wider">Viajeros</div>
     </div>
-
     <div class="text-center p-6 bg-gradient-to-br from-blue-500 to-amber-500 text-white rounded-2xl shadow-lg">
       <div class="text-4xl font-bold mb-2">24/7</div>
       <div class="text-sm uppercase tracking-wider">Disponible</div>
     </div>
   </section>
-
   <!-- Call to Action -->
   <section class="text-center bg-gradient-to-r from-blue-500 to-amber-500 text-white p-10 rounded-3xl shadow-2xl">
     <h3 class="text-3xl font-bold mb-4">¿Querés ser parte de Mochileando Argentina?</h3>
     <p class="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
       Sumate a nuestra comunidad de viajeros que, como vos, aman recorrer cada rincón de este hermoso país.
     </p>
-
     <div class="flex flex-wrap justify-center gap-4">
       {% if user.is_authenticated %}
       <a href="{% url 'posts:articulo_crear' %}"
@@ -133,7 +121,6 @@
         class="px-8 py-3 bg-white text-blue-600 font-bold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition">
         Registrarme
       </a>
-
       <a href="{% url 'usuarios:login' %}"
         class="px-8 py-3 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-blue-600 transition">
         Iniciar sesión
@@ -141,6 +128,5 @@
       {% endif %}
     </div>
   </section>
-
 </div>
 {% endblock content %}
